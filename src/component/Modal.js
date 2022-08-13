@@ -98,9 +98,11 @@ class Modal extends Component {
   }
 
   render() {
+    let url = "";
     return (
       <div>
         <a
+          href={url}
           className="waves-effect waves-light btn modal-trigger"
           data-target="modal1"
         >
@@ -127,7 +129,10 @@ class Modal extends Component {
             {/* <a className="modal-close waves-effect waves-red btn-flat">
               Disagree
             </a> */}
-            <a className="modal-close waves-effect waves-green btn-flat">
+            <a
+              href={url}
+              className="modal-close waves-effect waves-green btn-flat"
+            >
               close
             </a>
           </div>

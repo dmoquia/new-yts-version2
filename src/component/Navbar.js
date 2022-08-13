@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MovieContext } from "../context/movieContext";
 const Navbar = () => {
   const { toggleSearch, showSearch } = React.useContext(MovieContext);
+  let url = "";
   return (
     <nav>
       <div className="nav-wrapper  white">
@@ -21,7 +22,7 @@ const Navbar = () => {
         </a>
         <ul className="right hide-on-med-and-down ">
           <li>
-            <a onClick={() => showSearch(!toggleSearch)}>
+            <a href={url} onClick={() => showSearch(!toggleSearch)}>
               <i
                 className="material-icons"
                 style={{
