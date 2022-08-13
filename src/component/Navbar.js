@@ -4,6 +4,11 @@ import { MovieContext } from "../context/movieContext";
 const Navbar = () => {
   const { toggleSearch, showSearch } = React.useContext(MovieContext);
   let url = "";
+
+  const showToggle = (e) => {
+    e.preventDefault();
+    showSearch(!toggleSearch);
+  };
   return (
     <nav>
       <div className="nav-wrapper  white">
@@ -22,7 +27,7 @@ const Navbar = () => {
         </a>
         <ul className="right hide-on-med-and-down ">
           <li>
-            <a href={url} onClick={() => showSearch(!toggleSearch)}>
+            <a href={url} onClick={showToggle}>
               <i
                 className="material-icons"
                 style={{
