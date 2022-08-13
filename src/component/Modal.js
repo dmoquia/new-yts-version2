@@ -132,6 +132,7 @@ class Modal extends Component {
             <a
               href={url}
               className="modal-close waves-effect waves-green btn-flat"
+              onClick={(e) => e.preventDefault()}
             >
               close
             </a>
