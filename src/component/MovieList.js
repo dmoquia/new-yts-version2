@@ -1,7 +1,8 @@
 import React from "react";
 import Movie from "./Movie";
 import Loader from "./Loader";
-const MovieList = ({ movies, loading }) => {
+
+const MovieList = ({ movies, loading, title }) => {
   if (loading) {
     return <Loader />;
   }
@@ -11,7 +12,7 @@ const MovieList = ({ movies, loading }) => {
 
   return (
     <section className="section">
-      <h2 className="section-title">Movies</h2>
+      <h2 className="section-title">{title}</h2>
       <div className="movies-center">
         {movies.map((movie) => {
           return <Movie key={movie.id} {...movie} />;

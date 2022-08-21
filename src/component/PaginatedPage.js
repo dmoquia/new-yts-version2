@@ -1,11 +1,14 @@
-import React from "react";
-import MovieList from "./MovieList";
-import { MovieContext } from "../context/movieContext";
+import React, { useContext } from "react";
+import { LatestMovieContext } from "../context/latestMovieContext";
 import Loader from "./Loader";
-function PaginatedPage() {
-  const { sorted, page, changePage, toggleSearch } =
-    React.useContext(MovieContext);
-
+function PaginatedPage({ children }) {
+  const {
+    state: { sorted, page, toggleSearch },
+    dispatch,
+  } = useContext(LatestMovieContext);
+  const changePage = (index) => {
+    dispatch({ type: "SET_PAGE", payload: index });
+  };
   if (sorted[page]) {
     return (
       <>
@@ -48,7 +51,9 @@ function PaginatedPage() {
 
             {/* next */}
           </article>,
-          <MovieList movies={sorted[page]} key="1" />,
+
+          <article key="1">{children}</article>,
+
           <article className="pagination-buttons" key="2">
             {/* prev */}
             {page > 0 && (

@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import SearchForm from "../component/SearchForm";
-import { MovieContext } from "../context/movieContext";
 import PaginatedPage from "../component/PaginatedPage";
+import MovieList from "../component/MovieList";
+import { LatestMovieContext } from "../context/latestMovieContext";
 const Home = () => {
-  const { toggleSearch, setSearchTerm } = React.useContext(MovieContext);
+  const { state, dispatch } = useContext(LatestMovieContext);
+  const { sorted, page, toggleSearch } = state;
+  const setSearchTerm = (setTerm) => {
+    dispatch({ type: "SET_SEARCH_TERM", payload: setTerm });
+  };
+
   return (
     <main>
       {toggleSearch && <SearchForm setSearchTerm={setSearchTerm} />}
-      <PaginatedPage />
+      <PaginatedPage>
+        <MovieList movies={sorted[page]} title="movies" />
+      </PaginatedPage>
     </main>
   );
 };

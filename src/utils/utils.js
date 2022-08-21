@@ -16,15 +16,27 @@ export function paginate(movies) {
 }
 
 export function addComma(str) {
-  return str.map((char, i) => {
+  return str?.map((char, i) => {
     return (
       <span key={i} style={{ display: "inline" }}>
-        {char} {i < str.length - 1 ? ", " : "."}
+        {char} {i < str.length - 1 ? "," : "."}
       </span>
     );
   });
 }
 
+export function getNewMovies(props) {
+  const { id, medium_cover_image, slug, title, year, genres, rating } = props;
+  return {
+    id,
+    image: medium_cover_image,
+    slug,
+    title,
+    year,
+    genres,
+    rating,
+  };
+}
 function utils(props) {
   const res = props.map((item) => item);
   const url = `https://yts.mx/torrent/download/`;

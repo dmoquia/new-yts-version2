@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Modal from "../component/Modal";
-import utils from "../component/utils/utils";
-import { defaultPic } from "../component/utils/defaultImg";
-import { addComma } from "../component/utils/utils";
+import utils from "../utils/utils";
+import { defaultPic } from "../utils/defaultImg";
+import { addComma } from "../utils/utils";
 import Loader from "../component/Loader";
+
 const SingleMovie = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [movie, setMovie] = useState(null);
@@ -15,6 +16,7 @@ const SingleMovie = () => {
   const loadFailed = () => {
     setError(true);
   };
+
   useEffect(() => {
     (async function getMovieDetails() {
       setLoading(true);
@@ -78,13 +80,16 @@ const SingleMovie = () => {
           <p>genres: {addComma(genres)}</p>
           <p>description: {desc}</p>
           <div>
-            <a
+            <button
+              type="button"
               className="waves-effect waves-light btn"
-              href="/"
               style={{ width: "8.5rem", marginBottom: "1.5rem" }}
+              onClick={() => {
+                navigate(-1);
+              }}
             >
               back
-            </a>
+            </button>
           </div>
           <Modal>{utils(torrents)}</Modal>
 
