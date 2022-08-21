@@ -6,7 +6,7 @@ const PopularDownload = () => {
   const {
     state: { sortedPop: sorted, page, loading },
   } = React.useContext(LatestMovieContext);
-  console.log();
+
   return (
     <PaginatedPage>
       <MovieList

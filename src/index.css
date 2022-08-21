@@ -3,6 +3,7 @@
 Fonts
 ======
 */
+
 @import url("https://fonts.googleapis.com/css?family=Catamaran:300,400|Kaushan+Script&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Sorts+Mill+Goudy&family=Yanone+Kaffeesatz:wght@300&display=swap');
@@ -511,10 +512,196 @@ form
   font-size: 1.2rem;
 }
 
-/* cut from CL */
-/* end cut from CL */
 /* 
+====== 
+Cart Link
+======
+*/
+.cart-link-container {
+  position: relative;
+}
+.cart-link-container a {
+  margin-right: 10px;
+  font-weight: bolder;
+}
+.cart-link-total {
+  display: block;
+  position: absolute;
+  background: var(--primaryColor);
+  top: -10px;
+  right: -10px;
+  padding: 0rem 0.4rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: var(--mainWhite);
+}
+/* 
+====== 
+Login Form
+======
+*/
+.form {
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--maxWidth);
+}
+.login-form,
+.checkout-form {
+  background: var(--mainWhite);
+  padding: 1.25rem 1rem;
+  text-transform: capitalize;
+  border-radius: var(--mainBorderRadius);
+  box-shadow: var(--lightShadow);
+}
 
+.form-control label {
+  display: block;
+}
+.form-control input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--darkGrey);
+  margin-bottom: 1.25rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.form-empty,
+.stripe-errors {
+  text-align: center;
+  color: var(--mainRed);
+}
+.register-link {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  text-align: center;
+}
+.register-link button {
+  background: transparent;
+  border: none;
+  color: var(--primaryColor);
+  text-transform: capitalize;
+  font-size: inherit;
+  display: inline-block;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.disabled {
+  color: var(--mainWhite);
+  background: var(--darkGrey);
+  border-color: var(--darkGrey);
+}
+.disabled:hover {
+  background: transparent;
+  color: var(--darkGrey);
+  border-color: var(--darkGrey);
+}
+/* 
+====== 
+Login Button
+======
+*/
+.login-btn {
+  text-transform: capitalize;
+  background: transparent;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-family: var(--primaryFont);
+  margin: 0 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: var(--mainTransition);
+  font-weight: 300;
+}
+.login-btn:hover {
+  color: var(--primaryColor);
+}
+@media screen and (min-width: 768px) {
+  .login-btn {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+}
+/* 
+====== 
+Alert
+======
+*/
+.alert-container {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 10;
+  background: green;
+  width: 24rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: var(--mainWhite);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  border-radius: var(--mainBorderRadius);
+  transition: all 0.3s linear;
+}
+.alert-show {
+  display: block;
+}
+.alert-center {
+  position: relative;
+}
+.alert p {
+  margin-bottom: 0;
+  line-height: 2;
+}
+.alert-danger {
+  background: var(--mainRed);
+}
+.alert-close {
+  color: var(--mainWhite);
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  cursor: pointer;
+  line-height: 0;
+}
+/* 
+====== 
+Checkout
+======
+*/
+.checkout-form h3 span {
+  color: var(--primaryColor);
+}
+.stripe-info {
+  font-size: 80%;
+  margin-top: 0.5rem;
+  color: var(--darkGrey);
+}
+.stripe-info span {
+  color: var(--primaryColor);
+}
+
+.card-element {
+  border: 2px solid var(--darkGrey);
+  padding: 0.5rem;
+  font-size: 4rem;
+  border-radius: var(--mainBorderRadius);
+}
+
+.checkout-form .form-empty {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.checkout-form button {
+  margin-top: 1rem;
+}
 /* 
 ====== 
 Scroll Button
@@ -688,4 +875,3 @@ Filters Section
  .outline{
   border-bottom: 1px solid var(--primaryColor)!important;
  }
-

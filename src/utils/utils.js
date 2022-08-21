@@ -25,18 +25,6 @@ export function addComma(str) {
   });
 }
 
-export function getNewMovies(props) {
-  const { id, medium_cover_image, slug, title, year, genres, rating } = props;
-  return {
-    id,
-    image: medium_cover_image,
-    slug,
-    title,
-    year,
-    genres,
-    rating,
-  };
-}
 function utils(props) {
   const res = props.map((item) => item);
   const url = `https://yts.mx/torrent/download/`;

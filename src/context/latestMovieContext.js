@@ -51,10 +51,10 @@ function LatestMovieProvider({ children }) {
           dispatch({ type: "GET_NEW_MOVIES", payload: newMovies });
           dispatch({ type: "GET_SORTED", payload: paginate(newMovies) });
         } else {
-          dispatch({ type: "FAILED_MOVIES", payload: [] });
+          dispatch({ type: "FETCH_FAILED", payload: [] });
         }
       } catch (error) {
-        dispatch({ type: "FAILED_MOVIES", payload: error });
+        dispatch({ type: "FETCH_FAILED", payload: error });
         console.log(error);
       }
     })();

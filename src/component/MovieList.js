@@ -6,7 +6,7 @@ const MovieList = ({ movies, loading, title }) => {
   if (loading) {
     return <Loader />;
   }
-  if (movies.length < 1) {
+  if (movies?.length < 1) {
     return <h2 className="section-title">no movies found</h2>;
   }
 
@@ -14,7 +14,7 @@ const MovieList = ({ movies, loading, title }) => {
     <section className="section">
       <h2 className="section-title">{title}</h2>
       <div className="movies-center">
-        {movies.map((movie) => {
+        {movies?.map((movie) => {
           return <Movie key={movie.id} {...movie} />;
         })}
       </div>
