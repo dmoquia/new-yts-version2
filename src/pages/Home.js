@@ -6,7 +6,7 @@ import { LatestMovieContext } from "../context/latestMovieContext";
 
 const Home = () => {
   const { state, dispatch } = useContext(LatestMovieContext);
-  const { sorted, page, toggleSearch } = state;
+  const { sorted, page, loading, toggleSearch } = state;
   const setSearchTerm = (setTerm) => {
     dispatch({ type: "SET_SEARCH_TERM", payload: setTerm });
   };
@@ -19,7 +19,7 @@ const Home = () => {
       {toggleSearch && <SearchForm setSearchTerm={setSearchTerm} />}
 
       <PaginatedPage changePage={changePage} {...state}>
-        <MovieList movies={sorted[page]} title="movies" />
+        <MovieList movies={sorted[page]} loading={loading} title="movies" />
       </PaginatedPage>
     </main>
   );

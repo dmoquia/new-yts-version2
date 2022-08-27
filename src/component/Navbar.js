@@ -4,7 +4,7 @@ import { LatestMovieContext } from "../context/latestMovieContext";
 import M from "materialize-css";
 const Navbar = () => {
   const location = useLocation();
-  const { dispatch } = useContext(LatestMovieContext);
+  const { dispatch, popDispatch } = useContext(LatestMovieContext);
   let url = "";
   useEffect(() => {
     let sideNav = document.querySelector("#mobile-demo");
@@ -13,8 +13,12 @@ const Navbar = () => {
 
   const showToggle = (e) => {
     e.preventDefault();
-    dispatch({ type: "SHOW_SEARCH" });
+    if (location.pathname.startsWith("/popular"))
+      return popDispatch({ type: "SHOW_SEARCH" });
+    if (location.pathname.startsWith("/"))
+      return dispatch({ type: "SHOW_SEARCH" });
   };
+
   return (
     <>
       <nav>
@@ -41,22 +45,21 @@ const Navbar = () => {
             <span style={{ fontFamily: "Leckerli One" }}>Tickler</span>
           </a>
           <ul className="right hide-on-med-and-down ">
-            {!location.pathname.startsWith("/popular") &&
-              !location.pathname.startsWith("/about") && (
-                <li>
-                  <a href={url} onClick={showToggle}>
-                    <i
-                      className="material-icons"
-                      style={{
-                        fontSize: "2rem",
-                        color: "#2196f3",
-                      }}
-                    >
-                      search
-                    </i>
-                  </a>
-                </li>
-              )}
+            {!location.pathname.startsWith("/about") && (
+              <li>
+                <a href={url} onClick={showToggle}>
+                  <i
+                    className="material-icons"
+                    style={{
+                      fontSize: "2rem",
+                      color: "#2196f3",
+                    }}
+                  >
+                    search
+                  </i>
+                </a>
+              </li>
+            )}
 
             <li>
               <Link
@@ -114,7 +117,7 @@ const Navbar = () => {
             </i>
           </Link>
         </li>
-        {!location.pathname.startsWith("/popular") && (
+        {!location.pathname.startsWith("/about") && (
           <li>
             <a href={url} onClick={showToggle}>
               <i

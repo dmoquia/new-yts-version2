@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import { paginate, helper } from "../utils/utils";
 import reducer from "./movieReducer";
+
 export const LatestMovieContext = createContext();
 
 function LatestMovieProvider({ children }) {
@@ -43,7 +44,7 @@ function LatestMovieProvider({ children }) {
     (async function getPopular() {
       try {
         const res = await fetch(
-          `https://yts.mx/api/v2/list_movies.json?sort_by=download_count&limit=50&query_term=${state.searchTerm}`
+          `https://yts.mx/api/v2/list_movies.json?sort_by=download_count&query_term=${popState.searchTerm}&limit=50`
         );
         const result = await res.json();
         const { movies } = result.data;
@@ -60,7 +61,7 @@ function LatestMovieProvider({ children }) {
         console.log(error);
       }
     })();
-  }, [state.searchTerm]);
+  }, [popState.searchTerm]);
 
   return (
     <LatestMovieContext.Provider
