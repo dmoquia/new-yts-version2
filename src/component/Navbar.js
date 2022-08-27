@@ -10,6 +10,7 @@ const Navbar = () => {
     let sideNav = document.querySelector("#mobile-demo");
     M.Sidenav.init(sideNav, {});
   }, []);
+
   const showToggle = (e) => {
     e.preventDefault();
     dispatch({ type: "SHOW_SEARCH" });
@@ -67,15 +68,6 @@ const Navbar = () => {
                   fontFamily: "Yanone Kaffeesatz",
                 }}
               >
-                {/* <i
-                  className="material-icons"
-                  style={{
-                    fontSize: "2rem",
-                    color: "#2196f3",
-                  }}
-                >
-                  home
-                </i> */}
                 home
               </Link>
             </li>
@@ -89,25 +81,6 @@ const Navbar = () => {
                   fontFamily: "Yanone Kaffeesatz",
                 }}
               >
-                {/* <i
-                  className="material-icons"
-                  style={{
-                    fontSize: "1rem",
-                    color: "#2196f3",
-                  }}
-                >
-                  stars{" "}
-                  <span
-                    style={{
-                      color: "black",
-                      fontSize: "1.2rem",
-
-                      fontFamily: "Yanone Kaffeesatz",
-                    }}
-                  >
-                    popular
-                  </span>
-                </i> */}
                 popular
               </Link>
             </li>
@@ -117,7 +90,6 @@ const Navbar = () => {
                 style={{
                   color: "black",
                   fontSize: "1.5rem",
-                  // fontFamily: "Leckerli One",
                   fontFamily: "Yanone Kaffeesatz",
                 }}
               >

@@ -6,12 +6,14 @@ const SearchForm = ({ setSearchTerm }) => {
   useEffect(() => {
     searchValue.current.focus();
   }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   const searchMovie = () => {
     setSearchTerm(searchValue.current.value);
   };
+
   return (
     <section className="section">
       <form onSubmit={handleSubmit} className="form search-form">

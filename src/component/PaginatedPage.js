@@ -1,14 +1,9 @@
-import React, { useContext } from "react";
-import { LatestMovieContext } from "../context/latestMovieContext";
+import React from "react";
+
 import Loader from "./Loader";
-function PaginatedPage({ children }) {
-  const {
-    state: { sorted, page, toggleSearch },
-    dispatch,
-  } = useContext(LatestMovieContext);
-  const changePage = (index) => {
-    dispatch({ type: "SET_PAGE", payload: index });
-  };
+function PaginatedPage(props) {
+  const { children, changePage, sorted, page, toggleSearch } = props;
+
   if (sorted[page]) {
     return (
       <>

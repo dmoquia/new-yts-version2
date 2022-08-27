@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect } from "react";
-import { paginate } from "../utils/utils";
+import { paginate, helper } from "../utils/utils";
 import reducer from "./movieReducer";
 export const LatestMovieContext = createContext();
 
@@ -8,14 +8,13 @@ function LatestMovieProvider({ children }) {
     searchTerm: "",
     movies: [],
     loading: true,
-    popular: [],
     sorted: [],
-    sortedPop: [],
     page: 0,
     toggleSearch: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [popState, popDispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     (async function getMovies() {
@@ -27,27 +26,7 @@ function LatestMovieProvider({ children }) {
         const { movies } = result.data;
 
         if (movies) {
-          const newMovies = movies.map((movie) => {
-            const {
-              id,
-              medium_cover_image,
-              slug,
-              title,
-              year,
-              genres,
-              rating,
-            } = movie;
-            return {
-              id,
-              image: medium_cover_image,
-              slug,
-              title,
-              year,
-              genres,
-              rating,
-            };
-          });
-
+          const newMovies = movies.map((movie) => helper(movie));
           dispatch({ type: "GET_NEW_MOVIES", payload: newMovies });
           dispatch({ type: "GET_SORTED", payload: paginate(newMovies) });
         } else {
@@ -64,45 +43,29 @@ function LatestMovieProvider({ children }) {
     (async function getPopular() {
       try {
         const res = await fetch(
-          `https://yts.mx/api/v2/list_movies.json?sort_by=download_count&limit=50`
+          `https://yts.mx/api/v2/list_movies.json?sort_by=download_count&limit=50&query_term=${state.searchTerm}`
         );
         const result = await res.json();
         const { movies } = result.data;
         if (movies) {
-          const mostPopular = movies.map((movie) => {
-            const {
-              id,
-              medium_cover_image,
-              slug,
-              title,
-              year,
-              genres,
-              rating,
-            } = movie;
-            return {
-              id,
-              image: medium_cover_image,
-              slug,
-              title,
-              year,
-              genres,
-              rating,
-            };
-          });
-          dispatch({ type: "GET_POPULAR", payload: mostPopular });
-          dispatch({ type: "GET_SORTED_POP", payload: paginate(mostPopular) });
+          const mostPopular = movies.map((movie) => helper(movie));
+
+          popDispatch({ type: "GET_NEW_MOVIES", payload: mostPopular });
+          popDispatch({ type: "GET_SORTED", payload: paginate(mostPopular) });
         } else {
-          dispatch({ type: "FETCH_FAILED", payload: [] });
+          popDispatch({ type: "FETCH_FAILED", payload: [] });
         }
       } catch (error) {
-        dispatch({ type: "FETCH_FAILED", payload: error });
+        popDispatch({ type: "FETCH_FAILED", payload: error });
         console.log(error);
       }
     })();
-  }, []);
+  }, [state.searchTerm]);
 
   return (
-    <LatestMovieContext.Provider value={{ state, dispatch }}>
+    <LatestMovieContext.Provider
+      value={{ state, popState, dispatch, popDispatch }}
+    >
       {children}
     </LatestMovieContext.Provider>
   );
