@@ -19,7 +19,8 @@ export function addComma(str) {
   return str?.map((char, i) => {
     return (
       <span key={i} style={{ display: "inline" }}>
-        {char} {i < str.length - 1 ? "," : "."}
+        {/* {char} {i < str.length - 1 ? "," : "."} */}
+        {i < str.length - 1 ? char.concat(",") : char.concat(".")}
       </span>
     );
   });
