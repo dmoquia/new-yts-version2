@@ -48,15 +48,15 @@ class Modal extends Component {
             this.Modal = Modal;
           }}
           id="modal1"
-          className="modal"
+          className="modal "
         >
           {/* If you want Bottom Sheet Modal then add 
                         bottom-sheet class to the "modal" div
                         If you want Fixed Footer Modal then add
                         modal-fixed-footer to the "modal" div*/}
           <div className="modal-content">
-            <h4 style={{ textAlign: "center" }}>Select Movie Quality</h4>
-            <hr style={{ marginBottom: "2rem" }} />
+            <h4>Select Movie Quality</h4>
+            <hr />
             {this.props.children}
           </div>
           <div className="modal-footer">

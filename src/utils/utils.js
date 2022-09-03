@@ -1,5 +1,6 @@
 export function paginate(movies) {
-  const itemsPerPage = 8;
+  // const itemsPerPage = 8;
+  const itemsPerPage = 10;
   // const numberOfPage = products.length / itemsPerPage;
   const numberOfPage = Math.ceil(movies.length / itemsPerPage);
 

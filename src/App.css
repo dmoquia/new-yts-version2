@@ -37,8 +37,41 @@
   }
 }
 
-.modal{
+.modal {
   width: 35%;
 }
 /* ====================================================== */
 
+.new-chat-window {
+  position: relative !important;
+  width: 300px !important;
+  display: block !important;
+  margin: 4rem auto !important;
+  text-align: center !important;
+  z-index: 2 !important;
+}
+
+.new-chat-window .fa {
+  position: absolute !important;
+  top: 30% !important;
+  left: 10px !important;
+  font-weight: bold !important;
+  font-style: normal !important;
+  color: #f15025 !important;
+}
+
+input:focus {
+  outline-color: none !important;
+  border-color: none !important;
+}
+
+.new-chat-window-input {
+  /* border: 1px solid #ccc !important; */
+  border: none !important;
+  border-radius: 2rem !important;
+  line-height: 30px !important;
+  padding-left: 30px !important;
+  width: 100% !important;
+  z-index: 1 !important;
+  background: #fff !important;
+}

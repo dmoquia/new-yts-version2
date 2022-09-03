@@ -1,10 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LatestMovieContext } from "../context/latestMovieContext";
+import LatestMovieContext from "../context/latestMovies/movieContext";
 import M from "materialize-css";
+import Theme from "./ThemeToggle";
 const Navbar = () => {
   const location = useLocation();
-  const { dispatch, popDispatch } = useContext(LatestMovieContext);
+  const { dispatch, popDispatch, theme } = useContext(LatestMovieContext);
+  const switchTheme = theme === "light" ? "black" : "white";
+
   let url = "";
   useEffect(() => {
     let sideNav = document.querySelector("#mobile-demo");
@@ -22,7 +25,7 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <div className="nav-wrapper  white">
+        <div className={`nav-wrapper ${theme === "light" ? "white" : "black"}`}>
           <a href={url} className="sidenav-trigger" data-target="mobile-demo">
             <i
               className="material-icons"
@@ -42,14 +45,24 @@ const Navbar = () => {
             >
               movie
             </i>
-            <span style={{ fontFamily: "Leckerli One" }}>Tickler</span>
+            <span
+              style={{
+                fontFamily: "Leckerli One",
+                color: switchTheme,
+              }}
+            >
+              Tickler
+            </span>
           </a>
           <ul className="right hide-on-med-and-down ">
+            <li>
+              <Theme />
+            </li>
             {!location.pathname.startsWith("/about") && (
               <li>
                 <a href={url} onClick={showToggle}>
                   <i
-                    className="material-icons"
+                    className="material-icons "
                     style={{
                       fontSize: "2rem",
                       color: "#2196f3",
@@ -65,10 +78,10 @@ const Navbar = () => {
               <Link
                 to="/"
                 style={{
-                  color: "black",
-                  fontSize: "1.5rem",
-
-                  fontFamily: "Yanone Kaffeesatz",
+                  color: switchTheme,
+                  fontSize: "1.2rem",
+                  textTransform: "capitalize",
+                  fontFamily: "Oswald",
                 }}
               >
                 home
@@ -78,10 +91,10 @@ const Navbar = () => {
               <Link
                 to="/popular"
                 style={{
-                  color: "black",
-                  fontSize: "1.5rem",
-
-                  fontFamily: "Yanone Kaffeesatz",
+                  color: switchTheme,
+                  fontSize: "1.2rem",
+                  textTransform: "capitalize",
+                  fontFamily: "Oswald",
                 }}
               >
                 popular
@@ -91,9 +104,10 @@ const Navbar = () => {
               <Link
                 to="/about"
                 style={{
-                  color: "black",
-                  fontSize: "1.5rem",
-                  fontFamily: "Yanone Kaffeesatz",
+                  color: switchTheme,
+                  fontSize: "1.2rem",
+                  textTransform: "capitalize",
+                  fontFamily: "Oswald",
                 }}
               >
                 About
@@ -104,6 +118,9 @@ const Navbar = () => {
       </nav>
 
       <ul className="sidenav" id="mobile-demo">
+        <li>
+          <Theme />
+        </li>
         <li>
           <Link to="/">
             <i
