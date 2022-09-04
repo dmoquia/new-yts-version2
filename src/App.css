@@ -63,6 +63,7 @@
 input:focus {
   outline-color: none !important;
   border-color: none !important;
+  /* outline: none !important; */
 }
 
 .new-chat-window-input {

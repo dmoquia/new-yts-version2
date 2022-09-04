@@ -389,9 +389,8 @@ Movie List
   box-shadow: var(--darkShadow);
 }
 .img-container {
-  /* padding: 30rem; */
   padding: 0;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(4, 19, 100);
   position: relative;
   /* height: 14rem; */
 }
@@ -399,10 +398,8 @@ Movie List
   transition: var(--mainTransition);
   min-height: 9rem;
 }
-
 .movie:hover img {
-  /* opacity: 1; */
-  opacity: 0.5;
+  opacity: 0.3;
 }
 .movie-link {
   position: absolute;
@@ -434,15 +431,18 @@ Movie List
   opacity: 1;
   color: var(--primaryColor);
   font-weight: 500;
-  -webkit-text-stroke: 2px var(--primaryColor);
-  color: white;
+  -webkit-text-stroke: 1px var(--mainWhite);
+  -webkit-text-fill-color: var(--primaryColor);
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
 .movie:hover .rating-link {
   opacity: 1;
   color: var(--primaryColor);
   font-weight: 500;
-  -webkit-text-stroke: 2px var(--primaryColor);
-  color: white;
+  -webkit-text-stroke: 1px var(--mainWhite);
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
 .movie:hover .movie-link {
   opacity: 1;
@@ -454,7 +454,6 @@ Movie List
   letter-spacing: var(--mainSpacing);
   display: grid;
   grid-template-rows: 1fr auto;
-  /* margin-top: -10rem; */
 }
 .movie-title {
   text-transform: uppercase;

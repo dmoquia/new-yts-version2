@@ -12,7 +12,7 @@ const MovieList = ({ movies, loading, title }) => {
 
   return (
     <section className="section">
-      <h2 className="section-title">{title}</h2>
+      {/* <h2 className="section-title">{title}</h2> */}
       <div className="movies-center">
         {movies?.map((movie) => {
           return <Movie key={movie.id} {...movie} />;
