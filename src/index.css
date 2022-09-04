@@ -71,8 +71,10 @@ nav {
   overflow: hidden;
 }
 
-#dark .about-section {
-  height: 100vh;
+#dark .about-section,
+.section {
+  height: 93vh;
+  max-height: 100%;
 }
 #dark .movie img:hover {
   transform: scale(1.1);
