@@ -16,16 +16,22 @@ export function paginate(movies) {
   return newMovies;
 }
 
-export function addComma(str) {
-  return str?.map((char, i) => {
-    return (
-      <span key={i} style={{ display: "inline" }}>
-        {/* {char} {i < str.length - 1 ? "," : "."} */}
-        {i < str.length - 1 ? char.concat(",") : char.concat(".")}
-      </span>
-    );
-  });
-}
+// export function addComma(str) {
+//   return str?.map((char, i) => {
+//     return (
+//       <span key={i} style={{ display: "inline" }}>
+//         {/* {char} {i < str.length - 1 ? "," : "."} */}
+//         {i < str.length - 1 ? char.concat(",") : char.concat(".")}
+//       </span>
+//     );
+//   });
+// }
+export const addComma = (str) => {
+  return str
+    .filter((item) => item.trim().length > 0)
+    .join(",  ")
+    .concat(".");
+};
 
 export const helper = (props) => {
   const { id, medium_cover_image, slug, title, year, genres, rating } = props;

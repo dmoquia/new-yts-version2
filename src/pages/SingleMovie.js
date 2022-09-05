@@ -66,7 +66,7 @@ const SingleMovie = () => {
   }
   const { title, image, year, genres, desc, torrents, trailer } = movie;
   return (
-    <section className="section movie-section">
+    <section className="section movie-section" style={{ height: "94vh" }}>
       <h2 className="section-title">{title}</h2>
       <div className="single">
         <img

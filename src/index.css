@@ -41,6 +41,10 @@ nav {
   background-color: #f3ebf6;
   color: #222;
 }
+#light .section {
+  height: 100vh;
+  max-height: 100%;
+}
 #light .switch > i {
   color: rgba(34, 34, 34, 0.664);
   -webkit-transform: rotate(4deg);
@@ -71,11 +75,6 @@ nav {
   overflow: hidden;
 }
 
-#dark .about-section,
-.section {
-  height: 93vh;
-  max-height: 100%;
-}
 #dark .movie img:hover {
   transform: scale(1.1);
 }
@@ -87,9 +86,6 @@ nav {
 #dark .modal-content {
   background-color: #fafafa;
   color: #222;
-  /* display: "flex" !important;
-  justify-content: "center" !important;
-  align-content: "center" !important; */
   text-align: center;
 }
 
