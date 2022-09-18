@@ -1,5 +1,5 @@
-/* 
-====== 
+/*
+======
 Fonts
 ======
 */
@@ -7,9 +7,9 @@ Fonts
 @import url("https://fonts.googleapis.com/css?family=Catamaran:300,400|Kaushan+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Sorts+Mill+Goudy&family=Yanone+Kaffeesatz:wght@300&display=swap");
-/* 
-====== 
-Variables 
+/*
+======
+Variables
 ======
 */
 :root {
@@ -41,9 +41,11 @@ nav {
   background-color: #f3ebf6;
   color: #222;
 }
-#light .section {
-  height: 100vh;
-  max-height: 100%;
+
+#light,
+body {
+  background-color: #f3ebf6;
+  height: 100%;
 }
 #light .switch > i {
   color: rgba(34, 34, 34, 0.664);
@@ -72,10 +74,12 @@ nav {
   box-shadow: none;
   border: 5px solid #fff;
   border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 #dark .movie img:hover {
+  transform: scale(1.1);
+}
+#light .movie img:hover {
   transform: scale(1.1);
 }
 
@@ -113,9 +117,9 @@ nav {
 
 /* end of materializecss override */
 
-/* 
-====== 
-Global Styles 
+/*
+======
+Global Styles
 ======
 */
 * {
@@ -167,9 +171,9 @@ img {
   width: 10rem;
   margin: 0 auto;
 }
-/* 
-====== 
-Buttons 
+/*
+======
+Buttons
 ======
 */
 .btn,
@@ -216,8 +220,8 @@ Buttons
   box-shadow: var(--lightShadow);
   text-align: center;
 }
-/* 
-====== 
+/*
+======
 Header
 ======
 */
@@ -257,8 +261,8 @@ Header
   }
 }
 
-/* 
-====== 
+/*
+======
 Hero
 ======
 */
@@ -316,8 +320,8 @@ Hero
     padding: 1rem 3rem;
   }
 }
-/* 
-====== 
+/*
+======
 About
 ======
 */
@@ -331,8 +335,8 @@ About
   font-weight: 400;
   letter-spacing: 2px;
 }
-/* 
-====== 
+/*
+======
 Error
 ======
 */
@@ -344,8 +348,8 @@ Error
   text-align: center;
   text-transform: capitalize;
 }
-/* 
-====== 
+/*
+======
 Movie List
 ======
 */
@@ -390,6 +394,7 @@ Movie List
   padding: 0;
   background: rgb(4, 19, 100);
   position: relative;
+  overflow: hidden;
   /* height: 14rem; */
 }
 .movie img {
@@ -462,7 +467,7 @@ Movie List
 }
 
 /* .single-movie{
- 
+
   width: 30vw;
   max-width: var(--fullWidth);
   margin: 0 auto;
@@ -507,8 +512,8 @@ Movie List
   }
 }
 
-/* 
-====== 
+/*
+======
 Single Movie
 ======
 */
@@ -540,6 +545,7 @@ Single Movie
   line-height: 2;
   letter-spacing: 1px;
 }
+
 @media screen and (min-width: 992px) {
   .single-movie {
     display: grid;
@@ -547,8 +553,8 @@ Single Movie
     column-gap: 3rem;
   }
 }
-/* 
-====== 
+/*
+======
 form
 ======
 */
@@ -580,8 +586,8 @@ form
   font-size: 1.2rem;
 }
 
-/* 
-====== 
+/*
+======
 Pagination Buttons
 ======
 */
@@ -649,8 +655,8 @@ Pagination Buttons
   background: var(--primaryColor);
   color: var(--mainWhite);
 }
-/* 
-====== 
+/*
+======
 Filters Section
 ======
 */
@@ -729,4 +735,21 @@ Filters Section
 
 .outline {
   border-bottom: 1px solid var(--primaryColor) !important;
+}
+
+.container-iframe {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }

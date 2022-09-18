@@ -79,30 +79,40 @@ const SingleMovie = () => {
           <p>year: {year}</p>
           <p>genres: {addComma(genres)}</p>
           <p>description: {desc}</p>
-          <div>
+          <div style={{ display: "flex" }}>
             <button
               type="button"
               className="waves-effect waves-light btn"
-              style={{ width: "8.5rem", marginBottom: "1.5rem" }}
+              style={{
+                width: "8.5rem",
+                marginBottom: "1.5rem",
+                marginRight: "1rem",
+              }}
               onClick={() => {
                 navigate(-1);
               }}
             >
               back
             </button>
-          </div>
-          <Modal>{utils(torrents)}</Modal>
 
-          <iframe
-            style={{ marginTop: "1rem" }}
+            <Modal>{utils(torrents)}</Modal>
+          </div>
+          {/* <iframe
+           height="250px"
+              width="350px"
             title="selected movie trailer frame"
-            height="350px"
-            width="450px"
             src={`https://www.youtube.com/embed/${trailer}`}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-          ></iframe>
+          /> */}
+          <div className="container-iframe">
+            <iframe
+              className="responsive-iframe"
+              title="selected movie trailer frame"
+              src={`https://www.youtube.com/embed/${trailer}`}
+            />
+          </div>
         </div>
       </div>
     </section>

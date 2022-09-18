@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { defaultPic } from "../utils/defaultImg";
 
-export default function Movie({ id, image, title, year, rating, genres }) {
+function Movie({ id, image, title, year, rating, genres }) {
   const [error, setError] = React.useState(false);
   const loadFailed = () => {
     setError(true);
   };
-
+  console.log(image);
   return (
     <article className="movie">
       <div className="img-container">
@@ -31,3 +31,5 @@ export default function Movie({ id, image, title, year, rating, genres }) {
     </article>
   );
 }
+
+export default Movie;
